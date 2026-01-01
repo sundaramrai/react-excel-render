@@ -1,5 +1,6 @@
 import React from "react";
-import Papa, { ParseResult } from "papaparse";
+import * as Papa from "papaparse";
+import type { ParseResult } from "papaparse";
 import PredictLinechart from "./PredictLinechart";
 
 interface PredictChartProps {
