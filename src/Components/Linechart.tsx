@@ -15,12 +15,13 @@ type Data = {
 type Values = {
   data: Data[];
 };
-interface props {
-  values: Values;
-  title: string;
+
+interface LinechartProps {
+  readonly values: Values;
+  readonly title: string;
 }
 
-function Linechart({ values, title }: props) {
+function Linechart({ values, title }: LinechartProps) {
   const renderLineChart = (
     <ResponsiveContainer width="100%" height={400}>
       <LineChart data={values.data} margin={{ right: 50, bottom: 40 }}>
@@ -62,13 +63,11 @@ function Linechart({ values, title }: props) {
   );
 
   return (
-    <>
-      <div className="box">
-        <h1>{title}</h1>
-        {renderLineChart}
-      </div>
-    </>
+    <div className="box">
+      <h1>{title}</h1>
+      {renderLineChart}
+    </div>
   );
 }
 
-export default Linechart;1
+export default Linechart;

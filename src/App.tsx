@@ -1,6 +1,5 @@
 import Charts from "./Components/Charts";
 import PredictChart from "./Components/PredictChart";
-// import React from 'react';
 
 function App() {
   return (

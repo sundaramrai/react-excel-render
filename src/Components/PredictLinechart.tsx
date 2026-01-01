@@ -15,11 +15,11 @@ type Data = {
 type Values = {
   data: Data[];
 };
-interface props {
+interface PredictLinechartProps {
   values: Values;
   title: string;
 }
-function PredictLinechart({ values, title }: props) {
+function PredictLinechart({ values, title }: Readonly<PredictLinechartProps>) {
   const formatDateToMonthYear = (dateString: string) => {
     const date = new Date(dateString);
     const monthNames = [
@@ -73,7 +73,7 @@ function PredictLinechart({ values, title }: props) {
             angle: -90,
             fontWeight: "bold",
             offset: -5,
-            dy:-90
+            dy: -90
           }}
         />
         <Legend verticalAlign="top" align="right" />
@@ -84,12 +84,10 @@ function PredictLinechart({ values, title }: props) {
   );
 
   return (
-    <>
-      <div className="box">
-        <h1>{title}</h1>
-        {renderLineChart}
-      </div>
-    </>
+    <div className="box">
+      <h1>{title}</h1>
+      {renderLineChart}
+    </div>
   );
 }
 

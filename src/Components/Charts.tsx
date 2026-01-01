@@ -2,9 +2,9 @@ import React from "react";
 import Papa, { ParseResult } from "papaparse";
 import Linechart from "./Linechart";
 
-interface props {
-  location: string;
-  title: string;
+interface Props {
+  readonly location: string;
+  readonly title: string;
 }
 type Data = {
   [key: string]: string | number;
@@ -13,7 +13,7 @@ type Values = {
   data: Data[];
 };
 
-function Charts({ location, title }: props) {
+function Charts({ location, title }: Props) {
   const [values, setValues] = React.useState<Values | undefined>();
   const getCSV = () => {
     Papa.parse(location, {
